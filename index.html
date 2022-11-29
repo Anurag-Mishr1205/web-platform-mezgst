@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id='root'></div>
+  </body>
+  <script type="text/babel">
+   // let ele=document.createElement('h1')
+   // ele.innerHTML='HELLO'
+    //let root=document.getElementById('root')
+   // root.appendChild(ele);
+
+   //let ele=React.createElement('h1',{
+   //children:['HELLO']
+  //})
+  //ReactDOM.render(ele,root);
+
+  //jsx
+
+  //functional component
+  /*function Element({name="default"}){
+    return(
+      <h1>Hello {name}</h1>
+    )
+  }
+ // ReactDOM.render(<Element/>,document.getElementById('root'))
+
+ //component reusability and props
+
+ function Main(){
+   return(
+     <React.Fragment>
+     <Element name="ANURAG"/>
+     <Element/>
+     <Element/>
+     <Element/>
+     </React.Fragment>
+   )
+ }
+ ReactDOM.render(<Main/>,document.getElementById('root'))*/
+
+ //class component
+  class Counter extends React.Component{
+    constructor(){
+        super(); //hume isse iss class ka this milta hai
+        this.state={
+          count:0
+        }
+    }
+    //Function
+    increment=()=>{
+      //this.state.count=this.state.count+1;
+
+      //class component mai agar update karna hai to setState hi use hoga
+      this.setState({
+        count:this.state.count+1
+      })
+    }
+
+    decrement=()=>{
+      this.setState({
+        count:this.state.count-1
+      })
+    }
+    render()
+    {
+        return(
+          <React.Fragment>
+            <h1> {this.state.count}</h1>
+            <button onClick={this.increment}> +</button>
+            <button onClick={this.decrement}>-</button>
+            </React.Fragment>
+        )
+    }
+  }
+  ReactDOM.render(<Counter/>,document.getElementById('root'))
+  </script>
+</html>
